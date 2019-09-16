@@ -16,6 +16,7 @@ namespace :import do
           name: row[:name],
           team: row[:team],
           age: row[:age],
+          sex: row[:sex],
           sport: sport
         })
 
@@ -27,6 +28,7 @@ namespace :import do
       Performance.create!({
           medal: row[:medal],
           olympian: olympian,
+          games: row[:games],
           event: event
         })
     end

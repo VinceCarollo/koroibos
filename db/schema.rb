@@ -25,12 +25,15 @@ ActiveRecord::Schema.define(version: 20190916233012) do
     t.string "name"
     t.string "team"
     t.integer "age"
+    t.integer "sex"
+    t.integer "total_medals_won", default: 0
     t.bigint "sport_id"
     t.index ["sport_id"], name: "index_olympians_on_sport_id"
   end
 
   create_table "performances", force: :cascade do |t|
     t.string "medal"
+    t.string "games"
     t.bigint "olympian_id"
     t.bigint "event_id"
     t.index ["event_id"], name: "index_performances_on_event_id"
