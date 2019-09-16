@@ -8,7 +8,7 @@ RSpec.describe Event, type: :model do
 
   describe 'relationships' do
     it { should belong_to :sport }
-    it { should have_many :olympian_medals }
+    it { should have_many :performances }
     it { should have_many :olympians }
   end
 

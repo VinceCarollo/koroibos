@@ -2,7 +2,7 @@ require 'csv'
 
 namespace :import do
   task csv: :environment do
-    OlympianMedal.destroy_all
+    Performance.destroy_all
     Olympian.destroy_all
     Event.destroy_all
     Sport.destroy_all
@@ -12,26 +12,23 @@ namespace :import do
 
       sport = Sport.find_or_create_by(name: row[:sport])
 
-      olympian = Olympian.create!({
+      olympian = Olympian.find_or_create_by({
           name: row[:name],
           team: row[:team],
           age: row[:age],
           sport: sport
         })
 
-      event = Event.create!({
+      event = Event.find_or_create_by({
           name: row[:event],
           sport: sport
         })
 
-      row[:medal] = "none" if row[:medal] = "NA"
-      
-      OlympianMedal.create!({
-          medal_type: row[:medal],
+      Performance.create!({
+          medal: row[:medal],
           olympian: olympian,
           event: event
         })
-
     end
   end
 end
