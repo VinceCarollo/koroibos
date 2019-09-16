@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20190916180804) do
   end
 
   create_table "olympian_medals", force: :cascade do |t|
-    t.string "type"
+    t.string "medal_type"
     t.bigint "olympian_id"
     t.bigint "event_id"
     t.index ["event_id"], name: "index_olympian_medals_on_event_id"
