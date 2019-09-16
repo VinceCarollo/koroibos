@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe OlympianMedal, type: :model do
+RSpec.describe Performance, type: :model do
 
   describe 'validations' do
-    it { should validate_presence_of :medal_type }
+    it { should validate_presence_of :medal }
   end
 
   describe 'relationships' do
