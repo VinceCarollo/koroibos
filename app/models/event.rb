@@ -2,5 +2,5 @@ class Event < ApplicationRecord
   validates_presence_of :name
   belongs_to :sport
   has_many :olympian_medals
-  has_many :olympians, through: :olymian_medals
+  has_many :olympians, through: :olympian_medals
 end
