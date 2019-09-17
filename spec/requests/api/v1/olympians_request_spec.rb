@@ -29,4 +29,42 @@ RSpec.describe "Olympian API" do
     expect(olympians_data.first[:sex]).to eq(@olympian1.sex)
     expect(olympians_data.first[:total_medals_won]).to eq(@olympian1.total_medals_won)
   end
+
+  it "can give youngest olympian" do
+    headers = {
+      content_type: "application/json",
+      accept: "application/json"
+    }
+
+    get '/api/v1/olympians?age=youngest', headers: headers
+
+    expect(response).to be_successful
+    expect(status).to eq(200)
+
+    olympian_data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(olympian_data).to be_a Array
+    expect(olympian_data.count).to eq(1)
+
+    expect(olympian_data.first[:name]).to eq(@olympian1.name)
+  end
+
+  it "can give oldest olympian" do
+    headers = {
+      content_type: "application/json",
+      accept: "application/json"
+    }
+
+    get '/api/v1/olympians?age=oldest', headers: headers
+
+    expect(response).to be_successful
+    expect(status).to eq(200)
+
+    olympian_data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(olympian_data).to be_a Array
+    expect(olympian_data.count).to eq(1)
+
+    expect(olympian_data.first[:name]).to eq(@olympian2.name)
+  end
 end
