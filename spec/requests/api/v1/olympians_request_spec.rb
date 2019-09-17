@@ -25,6 +25,7 @@ RSpec.describe "Olympian API" do
     expect(olympians_data.first[:name]).to eq(@olympian1.name)
     expect(olympians_data.first[:team]).to eq(@olympian1.team)
     expect(olympians_data.first[:age]).to eq(@olympian1.age)
+    expect(olympians_data.first[:sport]).to eq(@olympian1.sport.name)
     expect(olympians_data.first[:sex]).to eq(@olympian1.sex)
     expect(olympians_data.first[:total_medals_won]).to eq(@olympian1.total_medals_won)
   end
