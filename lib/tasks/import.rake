@@ -20,6 +20,11 @@ namespace :import do
           sport: sport
         })
 
+      if row[:medal] != 'NA'
+        olympian.total_medals_won += 1
+        olympian.save
+      end
+
       event = Event.find_or_create_by({
           name: row[:event],
           sport: sport
