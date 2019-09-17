@@ -16,4 +16,18 @@ RSpec.describe Olympian, type: :model do
     it { should belong_to :sport }
   end
 
+  describe 'class methods' do
+    before :each do
+      @olympian1 = create(:olympian)
+      @olympian2 = create(:olympian)
+    end
+
+    it ".oldest" do
+      expect(Olympian.oldest).to eq(@olympian2)
+    end
+
+    it ".youngest" do
+      expect(Olympian.youngest).to eq(@olympian1)
+    end
+  end
 end

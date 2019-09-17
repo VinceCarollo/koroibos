@@ -5,4 +5,12 @@ class Olympian < ApplicationRecord
   belongs_to :sport
 
   scope :with_sport, -> { includes(:sport) }
+
+  def self.youngest
+    order(:age).take
+  end
+
+  def self.oldest
+    order(age: :desc).take
+  end
 end
