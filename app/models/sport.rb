@@ -3,4 +3,6 @@ class Sport < ApplicationRecord
 
   has_many :olympians
   has_many :events
+
+  scope :with_events, -> { includes(:events) }
 end

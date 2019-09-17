@@ -9,7 +9,7 @@ class EventsFacade
 
   def get_all_events
     events = []
-    Sport.all.each do |sport|
+    Sport.with_events.each do |sport|
       events.push({
         sport: sport.name,
         events: sport.events.map{|event| event.name}
