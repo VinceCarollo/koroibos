@@ -13,4 +13,20 @@ class Olympian < ApplicationRecord
   def self.oldest
     order(age: :desc).take
   end
+
+  def self.females
+    where(sex: "F")
+  end
+
+  def self.males
+    where(sex: "M")
+  end
+
+  def self.average_age
+    average(:age)
+  end
+
+  def self.average_weight
+    average(:weight)
+  end
 end
