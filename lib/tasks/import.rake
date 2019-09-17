@@ -17,6 +17,8 @@ namespace :import do
           team: row[:team],
           age: row[:age],
           sex: row[:sex],
+          height: row[:height],
+          weight: row[:weight],
           sport: sport
         })
 
