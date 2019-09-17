@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20190916233012) do
     t.string "name"
     t.string "team"
     t.integer "age"
-    t.integer "sex"
+    t.string "sex"
     t.integer "total_medals_won", default: 0
     t.bigint "sport_id"
     t.index ["sport_id"], name: "index_olympians_on_sport_id"
